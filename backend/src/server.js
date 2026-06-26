@@ -6,14 +6,15 @@ import dotenv from "dotenv";
 dotenv.config();
 
 console.log(process.env.MONGO_URI);
+const PORT = process.envPORT||5001;
 
 const app = express();
 
 app.use("/api/notes", noteRoutes);
 connectDB(); 
 
-app.listen(5001, () => {
-    console.log("Server is running on port 5001");
+app.listen(PORT, () => {
+    console.log("Server is running on port:", PORT);
 });
 
   
